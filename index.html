@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>유사 스타크래프트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="hp">HP: 3</h1>
+    <div class="background">
+        <img id="drone" src="img/drone.png" alt="drone">
+        <img id="spit" src="img/spit.png" alt="spit">
+        <img id="bunker" src="img/bunker.png" alt="bunker">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    </script>
+    <script>
+        var hp = 3;
+        $("#drone").click(function() {
+            // console.log("침 발사!");
+            $("#spit").fadeIn();
+            $("#spit").animate({left: '+=250'});
+            $("#spit").fadeOut(function() {
+                hp = hp - 1;
+                $("#hp").text("HP: " + hp);
+                // Callback! A -> B
+                if (hp == 0) {
+                    $("#bunker").fadeOut();
+                }
+            });
+            $("#spit").css({left: '150px'});
+            
+        })
+    </script>
+</body>
+</html>
